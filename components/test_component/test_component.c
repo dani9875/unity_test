@@ -1,0 +1,6 @@
+#include "test_component.h"
+
+int add(int a, int b)
+{
+    return a + b;
+}
