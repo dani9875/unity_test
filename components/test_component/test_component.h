@@ -1,5 +1,5 @@
-#ifndef TET_COMPONENT_H
-#define TET_COMPONENT_H
+#ifndef TEST_COMPONENT_H
+#define TEST_COMPONENT_H
 
 int add(int a, int b);
 
