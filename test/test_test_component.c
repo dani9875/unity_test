@@ -9,9 +9,11 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void test_function_should_doBlahAndBlah(void) {
+void test_function_should_doBlahAndBlah(void) 
+{
     TEST_ASSERT_EQUAL(3, add(1,2));
-    TEST_ASSERT_EQUAL(5, add(1,2));
+    TEST_ASSERT_EQUAL(7, add(4,3));
+
 }
 
 

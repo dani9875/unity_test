@@ -12,7 +12,7 @@ add_library(unity STATIC
     ${CMAKE_SOURCE_DIR}/unity/unity_internals.h
 )
 
-# Add the executable
+# Add the main executable
 add_executable(main main.c)
 
 # Add test_component sources directly to the main target
@@ -28,3 +28,18 @@ target_include_directories(main PRIVATE
 
 # Link Unity to the main executable
 target_link_libraries(main unity)
+
+# Add the test_test_component executable
+add_executable(test_component_exec
+    ${CMAKE_SOURCE_DIR}/test/test_test_component.c
+    ${CMAKE_SOURCE_DIR}/components/test_component/test_component.c
+)
+
+# Include directories for test_component_exec
+target_include_directories(test_component_exec PRIVATE
+    ${CMAKE_SOURCE_DIR}/components/test_component/
+    ${CMAKE_SOURCE_DIR}/unity/
+)
+
+# Link Unity to the test_component_exec executable
+target_link_libraries(test_component_exec unity)
