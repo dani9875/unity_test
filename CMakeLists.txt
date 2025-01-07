@@ -18,12 +18,14 @@ add_executable(main main.c)
 # Add test_component sources directly to the main target
 target_sources(main PRIVATE
     ${CMAKE_SOURCE_DIR}/components/test_component/test_component.c
-    ${CMAKE_SOURCE_DIR}/components/test_component/test_component.h
+    ${CMAKE_SOURCE_DIR}/components/stubbed/stubbed.c
+
 )
 
 # Include directory for test_component
 target_include_directories(main PRIVATE
     ${CMAKE_SOURCE_DIR}/components/test_component/
+    ${CMAKE_SOURCE_DIR}/components/stubbed/
 )
 
 # Link Unity to the main executable
@@ -33,13 +35,18 @@ target_link_libraries(main unity)
 add_executable(test_component_exec
     ${CMAKE_SOURCE_DIR}/test/test_test_component.c
     ${CMAKE_SOURCE_DIR}/components/test_component/test_component.c
+    ${CMAKE_SOURCE_DIR}/test/stubs/test_stub.c
+
 )
 
 # Include directories for test_component_exec
 target_include_directories(test_component_exec PRIVATE
     ${CMAKE_SOURCE_DIR}/components/test_component/
     ${CMAKE_SOURCE_DIR}/unity/
+    ${CMAKE_SOURCE_DIR}/components/stubbed/
 )
 
+# ${CMAKE_SOURCE_DIR}/components/test_component/stubs/
+ 
 # Link Unity to the test_component_exec executable
 target_link_libraries(test_component_exec unity)
